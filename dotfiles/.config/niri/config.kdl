@@ -1,3 +1,7 @@
+environment {
+	GTK_THEME "Adapta-Teal-Nokto"
+}
+
 input {
     keyboard {
         xkb {
@@ -49,6 +53,7 @@ binds {
     Mod+B { spawn "firefox"; }
     Mod+T { spawn "kitty"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+E { spawn "thunar"; }
     Super+Alt+L { spawn "swaylock"; }
 
     Mod+Q { close-window; }
