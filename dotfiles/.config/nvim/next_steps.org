@@ -1,0 +1,16 @@
+* Pending to install [0%]
+- [ ] Search files
+- [ ] Search patterns
+- [ ] Git
+- [-] Org mode plugins [25%]
+	- [X] Bullets
+	- [ ] Headlines
+	- [ ] Modern
+	- [ ] Otros
+* TODO Setup [0%]
+- [ ] Org mode plugins [0%]
+	- [ ] Bullets
+- [ ] Nvim-cmp
+	- [ ] Fix snippets
+	- [ ] Settup overloads?
+
