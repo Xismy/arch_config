@@ -27,22 +27,22 @@
 		"hyprland/language",
 		"clock",
 		"tray"
-	],
-	// Modules configuration
+	],	// Modules configuration
 	"niri/workspaces": {
-		"format": "{icon}{value}{icon}",
+	"format": "{icon} {name}",
 		"format-icons": {
-			"focused": "|",
-			"active": "",
-			"default": ""
+			"home": "",
+			"dev": "",
+			"test": "",
+			"bg": "󰇚󰒍"
 		}
 	},
 	"keyboard-state": {
 		"numlock": true,
 		"capslock": true,
 		"format": {
-			"capslock": "ABC {icon}",
-			"numlock": "123 {icon}"
+			"capslock": "󰪛 {icon}",
+			"numlock": "󰎠 {icon}"
 		},
 		"format-icons": {
 			"locked": "",
@@ -130,7 +130,7 @@
 		"format": "{volume}% {icon} {format_source}",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
 		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": " {format_source}",
+		"format-muted": " {format_source}",
 		"format-source": "{volume}% ",
 		"format-source-muted": "",
 		"format-icons": {
