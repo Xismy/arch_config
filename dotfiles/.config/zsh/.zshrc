@@ -3,7 +3,7 @@ setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 setopt PROMPT_SUBST
 
-source $ZDOTDIR/theme_colors.zsh
+source $ZDOTDIR/.theme
 
 zmodload zsh/complist
 
