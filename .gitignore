@@ -1,4 +1,5 @@
 dotfiles/.config/wallpapers
 dotfiles/.config/zsh/.zhistory
 dotfiles/.config/zsh/.theme
+dotfiles/.config/zsh/.zcompdump
 dotfiles/.config/nvim/lazy-lock.json
