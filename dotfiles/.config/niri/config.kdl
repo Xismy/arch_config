@@ -7,9 +7,12 @@ input {
         xkb {
             layout "es"
         }
+		numlock
     }
-
+	
     focus-follows-mouse max-scroll-amount="0%"
+	disable-power-key-handling
+	workspace-auto-back-and-forth
 }
 
 layout {
@@ -30,14 +33,33 @@ layout {
 }
 
 prefer-no-csd
+
+cursor {
+	xcursor-theme "volantes_light_cursors"
+	xcursor-size 64
+	hide-after-inactive-ms 1500
+}
+
+overview {
+	zoom 0.25
+	backdrop-color "#001010"
+	workspace-shadow {
+		softness 50
+		spread 50
+		offset x=25 y=45
+		color "#ffffff10"
+	}
+}
+
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww-ws"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-workspace "home"
+
+workspace "browser"
 workspace "dev"
 workspace "test"
-workspace "bg"
+workspace "media"
 
 animations {
     slowdown 2.0
@@ -54,7 +76,7 @@ binds {
     Mod+T { spawn "kitty"; }
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "thunar"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Super+L { spawn "swaylock" "--color" "00a070"; }
 
     Mod+Q { close-window; }
 
@@ -130,9 +152,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Plus { set-window-height "+10%"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print { spawn "zsh" "-c" "slurp | grim -g - - | satty -f-"; }
 
     Mod+Shift+E { quit; }
     Mod+Shift+P { power-off-monitors; }

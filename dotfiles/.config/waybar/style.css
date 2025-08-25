@@ -4,6 +4,7 @@
 @define-color theme_sec_bg_color rgba(100., 114., 125., 0.50196078431372548);
 @define-color theme_emph_color #00ffaa;
 @define-color theme_sec_emph_color #99ccff;
+@define-color theme_inactive_color #505050;
 @define-color theme_warning_color #ffaa00;
 
 * {
@@ -46,9 +47,18 @@ button:hover {
 
 #workspaces button label {
 	letter-spacing: 0px;
+	color: @theme_fg_color;
 }
 
 #workspaces button.empty label{
+	color: @theme_inactive_color;
+}
+
+#workspaces button.empty#niri-workspace-5 label,
+#workspaces button.empty#niri-workspace-6 label,
+#workspaces button.empty#niri-workspace-7 label,
+#workspaces button.empty#niri-workspace-8 label,
+#workspaces button.empty#niri-workspace-9 label {
 	color: transparent;
 }
 

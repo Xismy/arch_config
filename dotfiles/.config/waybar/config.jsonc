@@ -29,12 +29,12 @@
 		"tray"
 	],	// Modules configuration
 	"niri/workspaces": {
-	"format": "{icon} {name}",
+	"format": "{icon}",
 		"format-icons": {
-			"home": "",
+			"browser": "",
 			"dev": "",
 			"test": "",
-			"bg": "󰇚󰒍"
+			"media": "󰇚󰒍"
 		}
 	},
 	"keyboard-state": {

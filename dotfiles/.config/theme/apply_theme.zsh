@@ -41,12 +41,13 @@ awk -i inplace \
 		print("'"@define-color theme_sec_bg_color $(to_rgba ${THEME_SEC_BG_COLOR});"'");
 		print("'"@define-color theme_emph_color ${THEME_EMPH_COLOR};"'");
 		print("'"@define-color theme_sec_emph_color ${THEME_SEC_EMPH_COLOR};"'");
+		print("'"@define-color theme_inactive_color ${THEME_INACTIVE_COLOR};"'");
 		print("'"@define-color theme_warning_color ${THEME_WARNING_COLOR};"'");
 		print;\
 		theme_printed=1;\
 	}' \
 	~/.config/waybar/style.css
 
-	pkill waybar
-	setsid waybar 2>/dev/null 1>/dev/null < /dev/null &
+pkill waybar
+setsid waybar 2>/dev/null 1>/dev/null < /dev/null &
 

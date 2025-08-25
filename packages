@@ -1,0 +1,72 @@
+7zip
+! adapta-gtk-theme-colorpack-joshaby-git
+base
+base-devel
+blueman
+bluez-obex
+? clamav
+cliphist
+cpupower
+- dconf-editor
+- exfat-utils
+firefox
+fuzzel
+grim
+gvfs
+helvum
+- hostapd
+icu
+iw
+kitty
+linux
+linux-firmware
+man-db
+man-pages
+mpv
+neovim
+niri
+(hw-dep)nvidia
+(hw-dep)nvidia-settings
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-pulse
+plymouth
+? python-fangfrisch
+qt5-wayland
+qt6-wayland
+satty
+! sddm
++ sddm-theme-aerial-git
++ sddm-theme-catppuccin
++ sddm-theme-mountain-git
+slurp
+! sudo
+swaylock
+!swaync
+!swayidle
+swww
+thunar
+thunar-volman
+transmission-cli
+ttf-fira-code
+ttf-fira-mono
+ttf-firacode-nerd
+ttf-liberation
++ tumbler
++ unrar
++ unzip
++ vpnfailsafe-git
+waybar
+wireplumber
+wpa_supplicant
++ xdg-desktop-portal-hyprland
+xwayland-satellite
++ yt-dlp
+zsh
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting
+
+//TODO
+//session lock (locker + idle)
