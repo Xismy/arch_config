@@ -12,7 +12,6 @@ input {
 	
     focus-follows-mouse max-scroll-amount="0%"
 	disable-power-key-handling
-	workspace-auto-back-and-forth
 }
 
 layout {
@@ -154,6 +153,7 @@ binds {
 
     Print { spawn "zsh" "-c" "slurp | grim -g - - | satty -f-"; }
 
+    Mod+Shift+Q { spawn "powermenu.zsh"; }
     Mod+Shift+E { quit; }
     Mod+Shift+P { power-off-monitors; }
 
