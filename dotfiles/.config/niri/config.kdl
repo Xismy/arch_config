@@ -151,7 +151,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Plus { set-window-height "+10%"; }
 
-    Print { spawn "zsh" "-c" "slurp | grim -g - - | satty -f-"; }
+    Print { spawn "zsh" "-c" "slurp | grim -g - - | satty -f- --copy-command=wl-copy"; }
 
     Mod+Shift+Q { spawn "powermenu.zsh"; }
     Mod+Shift+E { quit; }
