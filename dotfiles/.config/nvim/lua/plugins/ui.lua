@@ -72,6 +72,12 @@ return {
 	{
 		"folke/snacks.nvim",
 		opts = {
+			dashsboard = {},
+			image = {
+				doc = {
+					conceal = true,
+				}
+			},
 			indent = {},
 			scroll = {},
 			input = {},
