@@ -72,7 +72,7 @@ return {
 	{
 		"folke/snacks.nvim",
 		opts = {
-			dashsboard = {},
+			dashboard = {},
 			image = {
 				doc = {
 					conceal = true,
