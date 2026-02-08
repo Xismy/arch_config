@@ -1,0 +1,76 @@
+prefer-no-csd
+
+layout {
+	background-color "#111111"
+    gaps 12
+    always-center-single-column
+
+    focus-ring {
+        width 2
+        active-gradient from="#00cc55" to="#0055cc" angle=225
+    }
+
+	preset-column-widths {
+		proportion 0.25
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+		proportion 0.75
+		proportion 1.0
+	}
+
+	preset-window-heights {
+		proportion 0.25
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+		proportion 0.75
+		proportion 1.0
+	}
+}
+
+window-rule {
+	draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+	match is-floating=true
+
+	shadow {
+		on
+	}
+}
+
+animations {
+	workspace-switch {
+		spring damping-ratio=0.6 stiffness=100 epsilon=0.001
+	}
+
+	window-open {
+		duration-ms 800
+		curve "ease-out-expo"
+	}
+
+
+	window-close {
+		duration-ms 800
+		curve "ease-out-quad"
+	}
+
+	horizontal-view-movement {
+		duration-ms 600
+		curve "ease-out-expo"
+	}
+
+	window-movement {
+		spring damping-ratio=0.7 stiffness=150 epsilon=0.001
+	}
+
+	window-resize {
+		spring damping-ratio=0.7 stiffness=150 epsilon=0.001
+	}
+}
+
+

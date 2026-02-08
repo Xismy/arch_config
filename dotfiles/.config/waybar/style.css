@@ -1,48 +1,45 @@
-@define-color theme_fg_color #CFD8DC;
-@define-color theme_sec_fg_color #ffd700;
-@define-color theme_bg_color #263238;
-@define-color theme_sec_bg_color rgba(100., 114., 125., 0.50196078431372548);
-@define-color theme_emph_color #00ffaa;
-@define-color theme_sec_emph_color #99ccff;
-@define-color theme_inactive_color #505050;
-@define-color theme_warning_color #ffaa00;
-
 * {
 	font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: @theme_fg_color;
 }
 
+
 window#waybar {
-	background-color: @theme_bg_color;
-	border-bottom: 3px solid @theme_sec_bg_color;
-	transition-property: background-color;
-	transition-duration: .5s;
+	background-color: alpha(@theme_base_color, 0.5);
+	border: 3px @theme_fg_color solid;
+	border-radius: 20px;
 }
 
-window#waybar.hidden {
-	opacity: 0.2;
+
+.modules-right > * > * {
+	margin: 0 10px;
 }
 
-button {
-	box-shadow: inset 0 -3px transparent;
-	border: none;
-	border-radius: 0;
-	padding: 0 10px;
+
+.modules-left {
+	margin-left: 15px;
 }
 
-button:hover {
-	background: inherit;
-	box-shadow: inset 0 -3px @theme_sec_color;
+
+.modules-right {
+	margin-right: 15px;
 }
+
+
+#workspaces button {
+	padding: 0 5px;
+	border-radius: 15px;
+}
+
+
+#workspaces button.active label {
+	color: @theme_selected_bg_color;
+}
+
 
 #workspaces button:hover {
 	background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.active {
-	color: @theme_emph_color;
-	box-shadow: inset 0 -3px @theme_emph_color;
 }
 
 #workspaces button label {
@@ -51,7 +48,7 @@ button:hover {
 }
 
 #workspaces button.empty label{
-	color: @theme_inactive_color;
+	color: @theme_unfocused_fg_color;
 }
 
 #workspaces button.empty#niri-workspace-5 label,
@@ -62,65 +59,51 @@ button:hover {
 	color: transparent;
 }
 
-#workspaces button.active label {
-	color: @theme_emph_color;
+
+#audio_sink label, 
+#audio_source label { 
+	padding: 0 5px 0 0;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
-	padding: 0 10px;
+
+#pulseaudio-slider {
+	padding: 0 0 0 10px;
+}
+
+
+#pulseaudio-slider slider {
 	background-color: transparent;
+	box-shadow: none;
 }
 
-#window,
-#workspaces {
-	margin: 0 4px;
+
+#pulseaudio-slider trough {
+	min-height: 10px;
+	min-width: 80px;
+	border-radius: 5px;
+	background-color: @theme_bg_color;
 }
 
-.modules-left > widget:first-child > #workspaces {
-	margin-left: 0;
+
+#pulseaudio-slider highlight {
+	min-width: 10px;
+	background: @theme_selected_bg_color;
+	border-radius: 5px;
+	border-width: 0;
+	margin: 1px;
 }
 
-.modules-right > widget:last-child > #workspaces {
-	margin-right: 0;
-}
 
 #pulseaudio.muted {
-	background-color: @theme_warning_color;
-	color: #2a5c45;
+	background-color: @theme_unfocused_bg_color;
+	color: @theme_unfocused_fg_color;
 }
+
 
 #temperature.critical {
-	background-color: @theme_warning_color;
+	background-color: red;
 }
 
-#tray {
-	background-color: #2980b9;
-}
-
-#tray > .passive {
-	-gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-	-gtk-icon-effect: highlight;
-	background-color: #eb4d4b;
-}
 
 #keyboard-state {
 	padding: 0 0px;
@@ -133,27 +116,21 @@ button:hover {
 }
 
 #keyboard-state > label.locked {
-	color: @theme_emph_color;
+	color: @theme_selected_bg_color;
 }
 
-#pulseaudio-slider slider {
-	min-height: 0px;
-	min-width: 0px;
-	opacity: 0;
-	background-image: none;
-	border: none;
-	box-shadow: none;
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
 }
-#pulseaudio-slider trough {
-	min-height: 10px;
-	min-width: 80px;
-	border-radius: 5px;
-	background-color: @theme_sec_bg_color;
+
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: #eb4d4b;
 }
-#pulseaudio-slider highlight {
-	min-width: 10px;
-	background-color: @theme_sec_emph_color;
-	border-radius: 5px;
-	border-width: 0;
-	margin: 1px;
+
+
+#custom-power-menu {
+	color: #ff8d8d;
 }

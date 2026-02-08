@@ -1,0 +1,12 @@
+environment {
+	TERMINAL "/usr/bin/kitty"
+}
+
+spawn-at-startup "qs"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+workspace "browse"
+workspace "dev"
+workspace "test"
+workspace "media"
+

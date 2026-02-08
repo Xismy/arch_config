@@ -1,0 +1,30 @@
+input {
+	keyboard {
+		xkb {
+			layout "us"
+			variant "altgr-intl"
+			options ""
+		}
+		repeat-delay 300
+		repeat-rate 20
+		numlock
+	}
+
+	mouse {
+		accel-speed -0.5
+		accel-profile "adaptive"
+		scroll-factor horizontal=1.0 vertical=1.0
+	}
+	
+	disable-power-key-handling
+	warp-mouse-to-focus mode="center-xy"
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+cursor {
+	xcursor-theme "volantes_light_cursors"
+	xcursor-size 64
+	hide-after-inactive-ms 1500
+}
+
+

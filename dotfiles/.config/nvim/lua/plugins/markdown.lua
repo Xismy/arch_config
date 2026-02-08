@@ -4,7 +4,10 @@ return {
 		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, 
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
-		opts = {},
+		opts = {
+			link = {
+				image = "",
+			},
+		},
 	},
-	'dfendr/clipboard-image.nvim',
 }
