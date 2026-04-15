@@ -1,0 +1,21 @@
+pragma Singleton
+import QtQuick
+import Quickshell
+
+QtObject {
+	property string dataHome: Quickshell.env("XDG_DATA_HOME") ?? Quickshell.env("HOME") + "/.config/local/share"
+	property string dataDirs: Quickshell.env("XDG_DATA_DIRS") ?? "/usr/local/share:/usr/share"
+
+	Process {
+		id: finder
+		running: false
+		command: []
+		stdout: StdioCollector {
+			onStreamFinished: console.log(`line read: ${this.text}`)
+		}
+	}
+
+	function findDesktop(string appId) {
+		finder.command = ["find", dataHome + "applications"]
+	}
+}

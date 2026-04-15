@@ -1,6 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		enabled = false,
 		cmd = "Copilot",
 		event = "VeryLazy",
 		opts = {
@@ -8,9 +9,9 @@ return {
 				enabled = true,
 				auto_trigger = false,
 				keymap = {
-					accept = "<C-l>",
-					next = "<C-j>",
-					prev = "<C-k>",
+					--accept = "<C-l>",
+					--next = "<C-j>",
+					--prev = "<C-k>",
 				},
 			},
 		}

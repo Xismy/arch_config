@@ -5,16 +5,19 @@ import qs.components
 import qs.config
 import qs.theme
 
-Column {
+Widget {
 	function mapIcon(app: string, title: string) : string {
 		return Config.windowsIcons[app] ?? app;
 	} 
 
 	Row {
+		property var activeChild: null
 		id: list 
-		anchors.horizontalCenter: parent.horizontalCenter
+		anchors.centerIn: parent
+		anchors.horizontalCenterOffset: implicitWidth / 2 - activeChild?.implicitWidth / 2 - activeChild?.x ?? 0
 
 		Repeater {
+			id: repeater
 			model: SortFilterProxyModel {
 				model:CompositorService.windowsList
 
@@ -30,24 +33,16 @@ Column {
 
 				onActiveChanged: {
 					if(active) {
-						label.text = model.title
-						list.anchors.horizontalCenterOffset = list.width / 2 - icon.x - icon.width / 2
+						list.activeChild = icon
 					}
 				}
 
-				text: mapIcon(model.appId, model.title)
+				text: mapIcon(model.appId, model.title) + (active? " " + model.appId : "")
 				fontSize: active? Fonts.size : Fonts.size * 0.6
 				fontBold: active
 				fontColor: active? Colors.secondary : Colors.inactive
 			}
 
 		}
-	}
-
-	Label {
-		id: label
-		anchors.horizontalCenter: parent.horizontalCenter
-		text: ""
-		font.pixelSize: Fonts.size * 0.7
 	}
 }

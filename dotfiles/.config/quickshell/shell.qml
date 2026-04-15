@@ -1,56 +1,97 @@
+//@ pragma UseQApplication
 import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
 import QtQuick
+import QtQuick.Layouts
 import qs.services
 import qs.components
 import qs.widgets
 import qs.theme
 
 ShellRoot {
-	Background {}
-	Panel {
+	Background {
+		
+		//FileView {
+		//	id: desktopFile
+		//	path: Qt.resolvedUrl("/usr/share/applications/firefox.desktop")
+		//	blockLoading: true
+		//}
+		//
+		//Column {
+		//	anchors.centerIn: parent
+
+		//	Text {
+		//		text: desktopFile.text().match(/StartupWMClass=.*/)[0]
+		//		color: "white"
+		//	}
+		//	
+		//	Text {
+		//		text: Xdg.dataHome
+		//		color: "white"
+		//	}
+
+		//	Text {
+		//		text: Xdg.dataDirs
+		//		color: "white"
+		//	}
+
+		//}
+	}
+	
+	PanelWindow {
 		id: bar
+		color: "transparent"
 		anchors.top: true
+		implicitWidth: Screen.width * 0.8
+		implicitHeight: Sizes.barHeight
 
-		Item {
-			implicitWidth: Screen.width * 0.8
-			implicitHeight: Math.max(workspacesPanel.implicitHeight, windows.implicitHeight, rightPanel.implicitHeight)
-
-			Workspaces {
-				id: workspacesPanel
-				anchors {
-					left: parent.left
-					leftMargin: 10
-					verticalCenter: parent.verticalCenter
-				}
+		RowLayout {
+			id: left
+			spacing: Sizes.widgetSpacing
+			anchors.left: parent.left
+			anchors.right: middle.left
+			height: parent.height
+			Network {}
+			Audio {}
+			Windows {Layout.fillWidth: true}
+		}
+		Rectangle {
+			id: middle
+			implicitWidth: clock.implicitWidth * 2
+			height: parent.height
+			anchors.horizontalCenter: parent.horizontalCenter
+			color: Colors.widgetBg
+			bottomLeftRadius: height / 2
+			bottomRightRadius: height / 2
+			Clock {
+				id: clock
+				color: "transparent"
+				anchors.centerIn: parent
 			}
+		}
+		RowLayout {
+			id: right
+			spacing: Sizes.widgetSpacing
+			anchors.right: parent.right
+			anchors.left: middle.right
+			height: parent.height
+			Tray {Layout.fillWidth: true}
+			ServicesManager {}
+			Power {}
+		}
+	}
 
-			Windows {
-				id: windows
-				anchors{
-					horizontalCenter: parent.horizontalCenter
-					verticalCenter: parent.verticalCenter
-				}
-			}
+	Panel {
+		id: workspaces
+		anchors.left: true
+		exclusionMode: ExclusionMode.Ignore
+		implicitWidth: wsMenu.implicitWidth
+		implicitHeight: wsMenu.implicitHeight
 
-			Row {
-				id: rightPanel
-				anchors {
-					right: parent.right
-					rightMargin: 10
-					verticalCenter: parent.verticalCenter
-				}
-
-				spacing: 24
-
-				Network {}
-				Audio {}
-				Clock {}
-				Tray {}
-				ServicesManager {}
-				Power {}
-			}
+		FlashingMenu {
+			id: wsMenu
+			Workspaces {}
 		}
 	}
 
@@ -79,7 +120,7 @@ ShellRoot {
 
 	Component.onCompleted: {
 		CompositorService.onWorkspaceActivated.connect(ws => {
-			bar.flashing = true
+			//bar.flashing = true
 		});
 	}
 }

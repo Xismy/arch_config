@@ -1,38 +1,32 @@
 import Quickshell
 import Quickshell.Services.SystemTray
 import QtQuick
-import QtQuick.Controls
 import qs.components
 
+Widget {
+	id: tray
+	align: right
 
-Row {
-
-	Repeater {
-		model: SystemTray.items
-		/*Button {
-			id: button
-			text: modelData.icon
-			acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
-			onClicked: function(event) {
-				if(event.button === Qt.LeftButton) {
-					modelData.activate()
-				} else if(event.button === Qt.RightButton) {
+	Row {
+		Repeater {
+			model: SystemTray.items
+			ImgButton {
+				id: button
+				source: modelData.icon
+				onClicked: function() {
+					modelData.activate();
+				}
+				onRightClicked: function() {
 					menu.menu = modelData.menu
 					menu.anchor.item = button
+					menu.anchor.margins.top = height
 					menu.open()
-				} else if(event.button === Qt.MiddleButton) {
-					modelData.secondaryActivate()
 				}
 			}
-		}*/
-		Image {
-			source: modelData.icon
-			width: 32
-			height: 32
 		}
-	}
 
-	QsMenuAnchor {
-		id: menu
+		QsMenuAnchor {
+			id: menu
+		}
 	}
 }

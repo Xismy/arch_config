@@ -15,16 +15,13 @@ Item {
 		command: Config.launcherCommands
 	}
 
-	Row {
+	Column {
 		id: list
-		spacing: 15
-		height: parent.height
 
 		Repeater {
 			model: CompositorService.workspacesList
 
 			Button {
-				anchors.verticalCenter: list.verticalCenter
 				text: model.name
 				fontColor: model.id === CompositorService.activeWorkspaceId? Colors.primary : Colors.foreground
 				onClicked: {

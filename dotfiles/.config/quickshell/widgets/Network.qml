@@ -2,11 +2,14 @@ import QtQuick
 import qs.services
 import qs.components
 
-Button {
-	id: network
+Widget {
 	property string graph: "󰌙"
 	property string name: ""
-	text: name + graph
+
+	Button {
+		id: button
+		text: graph
+	}
 
 	Connections {
 		target: NetworkService

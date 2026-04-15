@@ -7,6 +7,7 @@ QtObject {
 	readonly property color foreground: "#ffffff"
 	readonly property color inactive: "#80dddddd"
 	readonly property color background: "#c0404040"
+	readonly property color widgetBg: "#15ffffff"
 	
 	readonly property color red: "#ff5050"
 	readonly property color green: "#50ff50"

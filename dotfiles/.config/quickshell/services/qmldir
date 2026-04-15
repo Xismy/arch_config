@@ -2,3 +2,4 @@ singleton CompositorService 1.0 CompositorService.qml
 singleton NetworkService 1.0 NetworkService.qml
 singleton SystemServices 1.0 SystemServices.qml
 singleton MediaPlayerService 1.0 MediaPlayerService.qml
+#singleton Xdg 1.0 Xdg.qml

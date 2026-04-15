@@ -23,10 +23,7 @@ Button {
 		color: button.hovered ? Colors.foreground : fontColor
 	}
 
-	background: Rectangle {
-		color: button.hovered ? Colors.primary : "transparent"
-		radius: 5
-	}
+	background: null
 
 	states: [
 		State {

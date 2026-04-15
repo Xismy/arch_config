@@ -4,26 +4,17 @@ import Quickshell.Widgets
 import qs.theme
 
 Button {
+	id: button
 	default property alias content: contentLoader.sourceComponent
-	property string closedText: ''
-	property string openedText: closedText
-	property string closedFg: Colors.foreground
-	property string openedFg: Colors.foreground
 	property bool opened: false
 
-	text: opened ? openedText : closedText
-	fontColor: opened? openedFg : closedFg
-
-	onClicked: function() {
-		popup.anchor.window = QsWindow.window
-		opened = !opened
-		let pos = mapToGlobal(implicitWidth - popup.implicitWidth / 2, height)
-		popup.anchor.rect.x = Math.max(Math.min(pos.x, Screen.width - popup.implicitWidth), 0)
-		popup.anchor.rect.y = pos.y
-	}
-
 	onHoveredChanged: function() {
-		closeTimer.running = !hovered
+		if(hovered) {
+			opened = !opened
+		}
+		else {
+			closeTimer.running = !hovered
+		}
 	}
 
 	Timer {
@@ -38,18 +29,30 @@ Button {
 
 	PopupWindow {
 		id: popup
-		visible: opened
+		visible: shape.state === "opened"
+		anchor {
+			item: parent
+			adjustment: PopupAdjustment.None
+			rect {
+				x: 0
+				y: -implicitHeight / 2 + button.implicitHeight / 2
+				height: implicitHeight
+				width: implicitWidth
+			}
+		}
 		implicitWidth: popupArea.implicitWidth
 		implicitHeight: popupArea.implicitHeight
 		color: "transparent"
 
 		Rectangle {
 			id: shape
-			width: parent.width
-			height: 0
+			width: 0
+			height: popup.height
 			color: Colors.background
 			radius: 10
-			border.color: Colors.foreground
+			topLeftRadius: 0
+			bottomLeftRadius: 0
+			border.width: 0
 			clip: true
 
 			WrapperMouseArea {
@@ -70,20 +73,31 @@ Button {
 				}
 			}
 
-			states: State {
-				name: "opened"
-				when: popup.visible
+			states: [
+				State {
+					name: "opened"
+					when: button.opened
 
-				PropertyChanges {
-					target: shape
-					height: popup.height
+					PropertyChanges {
+						target: shape
+						width: popup.width
+					}
+				},
+				State {
+					name: "closed"
+					when: !button.opened
+
+					PropertyChanges {
+						target: shape
+						width: 0
+					}
 				}
-			}
+			]
 
 			transitions: Transition {
 				NumberAnimation {
-					properties: "height"
-					duration: 300
+					properties: "width"
+					duration: 100
 					easing.type: Easing.InOutQuad
 				}
 			}

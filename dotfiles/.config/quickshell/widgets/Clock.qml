@@ -2,10 +2,7 @@ import QtQuick
 import Quickshell
 import qs.components
 
-Item {
-	implicitWidth: menu.implicitWidth
-	implicitHeight: menu.implicitHeight
-
+Widget {
 	SystemClock {
 		id: clock
 		precision: SystemClock.Minutes

@@ -2,13 +2,20 @@ prefer-no-csd
 
 layout {
 	background-color "#111111"
-    gaps 12
+    gaps 8
     always-center-single-column
 
     focus-ring {
         width 2
         active-gradient from="#00cc55" to="#0055cc" angle=225
     }
+
+	struts {
+		top -3
+		bottom 7
+		left 4
+		right 4
+	}
 
 	preset-column-widths {
 		proportion 0.25

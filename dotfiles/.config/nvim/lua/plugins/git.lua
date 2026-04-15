@@ -3,8 +3,8 @@ return {
 		"folke/snacks.nvim",
 		---@type snacks.Config
 		opts = {
-			lazygit = {
-			}
+			--[[lazygit = {
+			}]]
 		}
 	}
 }
