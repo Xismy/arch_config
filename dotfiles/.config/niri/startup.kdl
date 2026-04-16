@@ -2,6 +2,7 @@ environment {
 	TERMINAL "/usr/bin/kitty"
 }
 
+spawn-at-startup "awww-daemon"
 spawn-at-startup "qs"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
