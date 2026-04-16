@@ -10,35 +10,6 @@ import qs.widgets
 import qs.theme
 
 ShellRoot {
-	Background {
-		
-		//FileView {
-		//	id: desktopFile
-		//	path: Qt.resolvedUrl("/usr/share/applications/firefox.desktop")
-		//	blockLoading: true
-		//}
-		//
-		//Column {
-		//	anchors.centerIn: parent
-
-		//	Text {
-		//		text: desktopFile.text().match(/StartupWMClass=.*/)[0]
-		//		color: "white"
-		//	}
-		//	
-		//	Text {
-		//		text: Xdg.dataHome
-		//		color: "white"
-		//	}
-
-		//	Text {
-		//		text: Xdg.dataDirs
-		//		color: "white"
-		//	}
-
-		//}
-	}
-	
 	PanelWindow {
 		id: bar
 		color: "transparent"
@@ -121,6 +92,7 @@ ShellRoot {
 	Component.onCompleted: {
 		CompositorService.onWorkspaceActivated.connect(ws => {
 			//bar.flashing = true
+			BackgroundService.setBackground(CompositorService.workspacesList.get(ws - 1).name);
 		});
 	}
 }

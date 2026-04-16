@@ -1,5 +1,7 @@
 pragma Singleton
 import QtQuick
+import Quickshell
+import qs.services
 
 QtObject {
 	property string compositor: "niri"
@@ -22,5 +24,18 @@ QtObject {
 		"transmission-daemon",
 		"mpd",
 		"webvplayer"
+	]
+
+	property string backgroundDir: Quickshell.shellDir + "/images/";
+
+	property var backgroundClearCommand: [
+		"awww", "clear", "000000"
+	]
+
+	property var backgroundChangeCommand: [
+		"awww", "img", 
+		"--transition-type", "fade", 
+		"--transition-duration", "2",
+		"--transition-bezier", ".5,.8,.5,.5",
 	]
 }
