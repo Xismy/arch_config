@@ -6,16 +6,13 @@ import qs.services
 import qs.components
 import qs.config
 
-Item {
-	implicitWidth: list.implicitWidth
-	implicitHeight: list.implicitHeight
-
+Widget {
 	Process {
 		id: launcher
 		command: Config.launcherCommands
 	}
 
-	Column {
+	Row {
 		id: list
 
 		Repeater {

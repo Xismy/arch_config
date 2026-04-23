@@ -23,6 +23,7 @@ ShellRoot {
 			anchors.left: parent.left
 			anchors.right: middle.left
 			height: parent.height
+			Workspaces {}
 			Network {}
 			Audio {}
 			Windows {Layout.fillWidth: true}
@@ -50,19 +51,6 @@ ShellRoot {
 			Tray {Layout.fillWidth: true}
 			ServicesManager {}
 			Power {}
-		}
-	}
-
-	Panel {
-		id: workspaces
-		anchors.left: true
-		exclusionMode: ExclusionMode.Ignore
-		implicitWidth: wsMenu.implicitWidth
-		implicitHeight: wsMenu.implicitHeight
-
-		FlashingMenu {
-			id: wsMenu
-			Workspaces {}
 		}
 	}
 
